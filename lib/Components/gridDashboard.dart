@@ -6,7 +6,7 @@ import 'package:streecare/Screens/jobs.dart';
 
 class GridDashboard extends StatelessWidget {
   Items item1 = new Items(
-      title: "Health", img: "assets/images/calendar.png", screen: Health());
+      title: "Health", img: "assets/images/healthcare.png", screen: Health());
 
   Items item2 = new Items(
     title: "Meetups",
@@ -22,14 +22,14 @@ class GridDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Items> myList = [item1, item2, item3];
-    var color = 0xff20124d;
+    var color = 0xff8675a9;
     return Flexible(
       child: GridView.count(
           childAspectRatio: 1.0,
-          padding: EdgeInsets.only(left: 16, right: 16),
-          crossAxisCount: 2,
-          crossAxisSpacing: 18,
-          mainAxisSpacing: 18,
+          padding: EdgeInsets.only(left: 14, right: 14),
+          crossAxisCount: 3,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
           children: myList.map((data) {
             return GestureDetector(
               child: Container(
@@ -41,10 +41,10 @@ class GridDashboard extends StatelessWidget {
                   children: <Widget>[
                     Image.asset(
                       data.img,
-                      width: 85,
+                      width: 60,
                     ),
                     SizedBox(
-                      height: 14,
+                      height: 3,
                     ),
                     Text(
                       data.title,

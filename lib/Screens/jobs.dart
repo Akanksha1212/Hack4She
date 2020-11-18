@@ -8,6 +8,10 @@ class Jobs extends StatefulWidget {
 class _JobsState extends State<Jobs> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Text("Jobs"),
+      ),
+    );
   }
 }
