@@ -12,6 +12,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:streecare/EnterMobile.dart';
+import 'package:streecare/login.dart';
 
 class SizeConfig {
   static MediaQueryData _mediaQueryData;
@@ -90,8 +91,8 @@ class _OTPState extends State<OTP> {
           //  await result.user.linkWithCredential(credential1);
           if (user != null) {
             Navigator.pop(context);
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: (context) => (UsersDisplay())));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => (Login())));
           } else {
             print("Error");
           }
@@ -373,10 +374,10 @@ class _OTPState extends State<OTP> {
                     if (user != null) {
                       // Navigator.pop(context);
                       pref.setBool('phone', true);
-                      // Navigator.pushReplacement(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => OTPVerified()));
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Login()));
                     } else {
                       print("Error");
                     }
