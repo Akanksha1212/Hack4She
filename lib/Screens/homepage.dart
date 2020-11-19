@@ -35,111 +35,127 @@ class Homepage extends StatelessWidget {
         //   ),
         // ),
 
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+        child: Stack(
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-              color: Color(0xffffde59),
-              margin: EdgeInsets.all(20),
-              child: Padding(
-                padding: EdgeInsets.all(30),
-                child: Column(
-                  children: [
-                    Card(
-                      child: ListTile(
-                        leading: Image.asset("assets/images/healthcare.png"),
-                        title: Text('Health & Lifestyle'),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-                        // subtitle: Text(''),
-                        // isThreeLine: true,
-                        trailing: RaisedButton(
-                            child: Text(''),
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18),
-                                side: BorderSide(color: Colors.black)),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Health()),
-                              );
-                            }),
-                      ),
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Card(
-                      child: ListTile(
-                        leading: Image.asset("assets/images/calendar.png"),
-                        title: Text('Meetups'),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-                        // subtitle: Text(''),
-                        // isThreeLine: true,
-                        trailing: IconButton(
-                            icon: Icon(Icons.arrow_right),
-                            color: Colors.black,
-                            iconSize: 50,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Meetups()),
-                              );
-                            }),
-                      ),
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Card(
-                      child: ListTile(
-                        leading: Image.asset("assets/images/job.png"),
-                        title: Text('Jobs'),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-                        // subtitle: Text(''),
-                        // isThreeLine: true,
-                        trailing: RaisedButton(
-                            child: Text(''),
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18),
-                                side: BorderSide(color: Colors.black)),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Jobs()),
-                              );
-                            }),
-                      ),
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                  ],
+            // Image(
+            //   image: AssetImage('assets/images/ww.png'),
+            // ),
+            Column(
+              //mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SizedBox(
+                  height: 75,
                 ),
-              ),
+                Container(
+                  color: Color(0xffffde59),
+                  margin: EdgeInsets.fromLTRB(10, 10, 10, 40),
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(20, 30, 20, 50),
+                    child: Column(
+                      children: [
+                        Card(
+                          child: ListTile(
+                            leading:
+                                Image.asset("assets/images/healthcare.png"),
+                            title: Text('Health & Lifestyle'),
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 25, vertical: 20),
+                            // subtitle: Text(''),
+                            // isThreeLine: true,
+                            trailing: RaisedButton(
+                                child: Text('Go'),
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18),
+                                    side: BorderSide(color: Colors.black)),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Health()),
+                                  );
+                                }),
+                          ),
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset("assets/images/calendar.png"),
+                            title: Text('Meetups'),
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 25, vertical: 20),
+                            // subtitle: Text(''),
+                            // isThreeLine: true,
+                            trailing: RaisedButton(
+                                child: Text('Go'),
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18),
+                                    side: BorderSide(color: Colors.black)),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Jobs()),
+                                  );
+                                }),
+                          ),
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset("assets/images/job.png"),
+                            title: Text('Jobs'),
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 25, vertical: 20),
+                            // subtitle: Text(''),
+                            // isThreeLine: true,
+                            trailing: RaisedButton(
+                                child: Text('Go'),
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18),
+                                    side: BorderSide(color: Colors.black)),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Jobs()),
+                                  );
+                                }),
+                          ),
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
             Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Image(
-                  image: AssetImage('assets/images/backk.png'),
+                  image: AssetImage('assets/images/ww.png'),
                 )
               ],
             )
