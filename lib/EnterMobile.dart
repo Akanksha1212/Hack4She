@@ -65,11 +65,11 @@ class _EnterMobileState extends State<EnterMobile> {
                             gradient: LinearGradient(
                               begin: Alignment(-1.52, 1.0),
                               end: Alignment(1.13, -0.95),
-//                              colors: [
-//                                const Color(0xffee00ff),
-//                                const Color(0xff6600ff)
-//                              ],
-//                              stops: [0.0, 1.0],
+                              colors: [
+                                const Color(0xffee00ff),
+                                const Color(0xff6600ff)
+                              ],
+                              stops: [0.0, 1.0],
                             ),
                           ),
                         ),
@@ -222,11 +222,11 @@ class _EnterMobileState extends State<EnterMobile> {
                       gradient: LinearGradient(
                         begin: Alignment(-1.35, 2.14),
                         end: Alignment(1.13, -2.03),
-//                        colors: [
-//                          const Color(0xffee00ff),
-//                          const Color(0xff6600ff)
-//                        ],
-//                        stops: [0.0, 1.0],
+                        colors: [
+                          const Color(0xffee00ff),
+                          const Color(0xff6600ff)
+                        ],
+                        stops: [0.0, 1.0],
                       ),
                       boxShadow: [
                         BoxShadow(

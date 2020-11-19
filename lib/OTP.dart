@@ -10,6 +10,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:streecare/EnterMobile.dart';
+import 'package:streecare/Screens/homepage.dart';
 
 class SizeConfig {
   static MediaQueryData _mediaQueryData;
@@ -86,8 +87,8 @@ class _OTPState extends State<OTP> {
           //  await result.user.linkWithCredential(credential1);
           if (user != null) {
             Navigator.pop(context);
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: (context) => (UsersDisplay())));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => (Homepage())));
           } else {
             print("Error");
           }
@@ -127,12 +128,11 @@ class _OTPState extends State<OTP> {
                             gradient: LinearGradient(
                               begin: Alignment(-1.52, 1.0),
                               end: Alignment(1.13, -0.95),
-
-//                              colors: [
-//                                const Color(0xffee00ff),
-//                                const Color(0xff6600ff)
-//                              ],
-//                              stops: [0.0, 1.0],
+                              colors: [
+                                const Color(0xffee00ff),
+                                const Color(0xff6600ff)
+                              ],
+                              stops: [0.0, 1.0],
                             ),
                           ),
                         ),
@@ -334,11 +334,11 @@ class _OTPState extends State<OTP> {
                       gradient: LinearGradient(
                         begin: Alignment(-1.35, 2.14),
                         end: Alignment(1.13, -2.03),
-//                        colors: [
-//                          const Color(0xffee00ff),
-//                          const Color(0xff6600ff)
-//                        ],
-//                        stops: [0.0, 1.0],
+                        colors: [
+                          const Color(0xffee00ff),
+                          const Color(0xff6600ff)
+                        ],
+                        stops: [0.0, 1.0],
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -367,10 +367,8 @@ class _OTPState extends State<OTP> {
                     if (user != null) {
                       // Navigator.pop(context);
                       pref.setBool('phone', true);
-                      // Navigator.pushReplacement(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => OTPVerified()));
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Homepage()));
                     } else {
                       print("Error");
                     }
