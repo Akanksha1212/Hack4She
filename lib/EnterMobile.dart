@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:adobe_xd/page_link.dart';
@@ -38,8 +37,8 @@ class _EnterMobileState extends State<EnterMobile> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
   }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig1().init(context);
@@ -137,7 +136,9 @@ class _EnterMobileState extends State<EnterMobile> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(width: MediaQuery.of(context).size.width*0.09,),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.09,
+                    ),
                     Image.asset('assets/images/Phone.png'),
                   ],
                 ),
@@ -153,18 +154,20 @@ class _EnterMobileState extends State<EnterMobile> {
                   ),
                   child: SizedBox(
                     child: Row(
-
                       children: [
                         Container(
-                          height: SizeConfig1.blockSizeVertical *8,
+                          height: SizeConfig1.blockSizeVertical * 8,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.horizontal(left: Radius.circular(3.0)),
+                            borderRadius: BorderRadius.horizontal(
+                                left: Radius.circular(3.0)),
                             color: Color(0xff555555),
                           ),
-
                           child: Center(
                             child: IconButton(
-                              icon: Icon(FontAwesomeIcons.mobileAlt, color: Colors.white,),
+                              icon: Icon(
+                                FontAwesomeIcons.mobileAlt,
+                                color: Colors.white,
+                              ),
                               onPressed: null,
                             ),
                           ),

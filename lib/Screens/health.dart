@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
+class Health extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       body: Center(child: Text("login Successful")),
+      body: Center(
+        child: Text("Health"),
+      ),
     );
   }
 }
