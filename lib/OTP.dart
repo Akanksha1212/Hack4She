@@ -1,8 +1,6 @@
 //AKHIL AND RAHUL CODE, IF ANY ERROR IN MOHIT'S CODE, TURN THIS ON
 import 'dart:async';
 
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -46,7 +44,7 @@ class _OTPState extends State<OTP> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final formKey = GlobalKey<FormState>();
   TextEditingController controller;
-  String otp,a;
+  String otp, a;
   FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseUser user;
   bool loading = false;
@@ -54,7 +52,6 @@ class _OTPState extends State<OTP> {
   final String phone;
 
   _OTPState(this.phone);
-
 
   final code = TextEditingController();
   void initState() {
@@ -79,12 +76,11 @@ class _OTPState extends State<OTP> {
             //loading = true;
           });
           //Navigator.of(context).pop();
-          try{
+          try {
             AuthResult result = await _auth.signInWithCredential(credential);
-            user=result.user;
-          }catch( e)
-          {
-            print (e);
+            user = result.user;
+          } catch (e) {
+            print(e);
           }
 
           //  await result.user.linkWithCredential(credential1);
@@ -106,7 +102,6 @@ class _OTPState extends State<OTP> {
         },
         codeAutoRetrievalTimeout: null);
   }
-
 
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -133,11 +128,11 @@ class _OTPState extends State<OTP> {
                               begin: Alignment(-1.52, 1.0),
                               end: Alignment(1.13, -0.95),
 
-                              colors: [
-                                const Color(0xffee00ff),
-                                const Color(0xff6600ff)
-                              ],
-                              stops: [0.0, 1.0],
+//                              colors: [
+//                                const Color(0xffee00ff),
+//                                const Color(0xff6600ff)
+//                              ],
+//                              stops: [0.0, 1.0],
                             ),
                           ),
                         ),
@@ -339,11 +334,11 @@ class _OTPState extends State<OTP> {
                       gradient: LinearGradient(
                         begin: Alignment(-1.35, 2.14),
                         end: Alignment(1.13, -2.03),
-                        colors: [
-                          const Color(0xffee00ff),
-                          const Color(0xff6600ff)
-                        ],
-                        stops: [0.0, 1.0],
+//                        colors: [
+//                          const Color(0xffee00ff),
+//                          const Color(0xff6600ff)
+//                        ],
+//                        stops: [0.0, 1.0],
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -365,10 +360,9 @@ class _OTPState extends State<OTP> {
                     AuthCredential credential = PhoneAuthProvider.getCredential(
                         verificationId: a, smsCode: textEditingController.text);
                     AuthResult result =
-                    await _auth.signInWithCredential(credential);
+                        await _auth.signInWithCredential(credential);
 
                     FirebaseUser user = result.user;
-
 
                     if (user != null) {
                       // Navigator.pop(context);
