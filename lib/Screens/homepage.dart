@@ -9,7 +9,7 @@ class Homepage extends StatelessWidget {
       appBar: AppBar(
         elevation: 4,
         brightness: Brightness.light,
-        backgroundColor: Color(0xffB8B3E9),
+        backgroundColor: Color(0xffffde59),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -24,7 +24,7 @@ class Homepage extends StatelessWidget {
       ),
       drawer: NavDrawer(),
       body: Container(
-        color: Color(0xffB6EAF7),
+        color: Color(0xfffe82a7),
         // decoration: BoxDecoration(
         //   image: DecorationImage(
         //     image: AssetImage('assets/images/stree.jpeg'),
@@ -56,7 +56,7 @@ class NavDrawer extends StatelessWidget {
       width: MediaQuery.of(context).size.width / 1.7, //20.0,
       child: Drawer(
         child: Container(
-          color: Color(0xffB8B3E9),
+          color: Color(0xfffe82a7),
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
