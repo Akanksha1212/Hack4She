@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:streecare/Components/gridDashboard.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:streecare/Screens/health.dart';
+import 'package:streecare/Screens/jobs.dart';
+import 'package:streecare/Screens/meetups.dart';
 
 class Homepage extends StatelessWidget {
   @override
@@ -31,10 +34,108 @@ class Homepage extends StatelessWidget {
         //     fit: BoxFit.cover,
         //   ),
         // ),
+
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            SizedBox(height: 200),
-            GridDashboard(),
+            Container(
+              color: Color(0xffffde59),
+              margin: EdgeInsets.all(20),
+              child: Padding(
+                padding: EdgeInsets.all(30),
+                child: Column(
+                  children: [
+                    Card(
+                      child: ListTile(
+                        leading: Image.asset("assets/images/healthcare.png"),
+                        title: Text('Health & Lifestyle'),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                        // subtitle: Text(''),
+                        // isThreeLine: true,
+                        trailing: RaisedButton(
+                            child: Text(''),
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                                side: BorderSide(color: Colors.black)),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Health()),
+                              );
+                            }),
+                      ),
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: Image.asset("assets/images/calendar.png"),
+                        title: Text('Meetups'),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                        // subtitle: Text(''),
+                        // isThreeLine: true,
+                        trailing: IconButton(
+                            icon: Icon(Icons.arrow_right),
+                            color: Colors.black,
+                            iconSize: 50,
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Meetups()),
+                              );
+                            }),
+                      ),
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: Image.asset("assets/images/job.png"),
+                        title: Text('Jobs'),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                        // subtitle: Text(''),
+                        // isThreeLine: true,
+                        trailing: RaisedButton(
+                            child: Text(''),
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                                side: BorderSide(color: Colors.black)),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Jobs()),
+                              );
+                            }),
+                      ),
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
+              ),
+            ),
             Column(
               children: [
                 Image(
