@@ -17,8 +17,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getstatus();
-    Future.delayed(Duration(seconds: 5), () {
+   // getstatus();
+    Future.delayed(Duration(seconds: 3),()
+    {
+      getstatus();
+    });
+    Future.delayed(Duration(seconds:3), () {
       Navigator.pop(context);
       Navigator.push(
           context, MaterialPageRoute(builder: (context) =>EnterMobile()  ));
@@ -44,8 +48,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 begin:Alignment.topRight,
                 end: Alignment.bottomLeft,
                 colors: [
-                  Color(0xffff893b),
-                  Color(0xffff0053),
+                  Color(0xffff5757),
+                  Color(0xfffc5857),
                 ]
             )
         ),
