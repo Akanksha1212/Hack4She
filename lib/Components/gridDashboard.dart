@@ -22,7 +22,7 @@ class GridDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Items> myList = [item1, item2, item3];
-    var color = 0xff8675a9;
+    var color = 0xffffde59;
     return Flexible(
       child: GridView.count(
           childAspectRatio: 1.0,
