@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -26,11 +28,41 @@ class _AddMeetUpState extends State<AddMeetUp> {
       'mobile': mobile.text,
       'seats': seats.text,
       'time': time2,
-      'posted_by': _uid
+      'posted_by': _uid,
+      'location': _myLocation.data
     };
     Firestore.instance.collection('MeetUps').document().setData(data);
   }
+  final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
+  GeoFirePoint _myLocation;
+  final geo = Geoflutterfire();
+  double latitude, longitude;
+  _getCurrentLocation() {
+    Firestore firestore = Firestore.instance;
+    geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      latitude = position.latitude;
+      longitude = position.longitude;
+      GeoFirePoint myLocation =
+      geo.point(latitude: latitude, longitude: longitude);
+      this._myLocation = myLocation;
+      setState(() {
+        _myLocation=myLocation;
+      });
+    }).catchError((e) {
+      print(e);
+    });
 
+    // FlutterToast.showToast(msg: _myLocation.latitude.toString());
+  }
+      @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _getCurrentLocation();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
