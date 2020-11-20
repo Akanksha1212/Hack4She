@@ -1,6 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:streecare/EnterMobile.dart';
+import 'package:streecare/Screens/MeetUpExplore.dart';
+import 'package:streecare/Screens/MeetUpHistory.dart';
+
+import 'package:streecare/Screens/addMeetUp.dart';
+import 'package:streecare/Screens/meetups.dart';
+
 import 'package:streecare/SplashScreen.dart';
 import 'package:streecare/maps.dart';
 
@@ -24,7 +30,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(),
+      home: Explore(),
     );
   }
 }
