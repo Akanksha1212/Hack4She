@@ -8,8 +8,8 @@ import 'package:streecare/Components/styles.dart';
 
 
 class DonorView extends StatefulWidget {
-  DonorView({this.name,this.city,this.neededDate,this.contact,this.state});
-  final String name,city,neededDate,contact,state;
+  DonorView({title,description,city,date,landamark,mobile,seats,state,duration});
+  final String title,description,city,date,landmark,mobile,seats,state,duration;
 
 
   @override
@@ -63,7 +63,7 @@ class _DonorViewState extends State<DonorView> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text('${widget.name}',style: TextStyle(fontSize: 22,color: Color(0xff756d7f)),),
+                              Text('${widget.title}',style: TextStyle(fontSize: 22,color: Color(0xff756d7f)),),
                               //Text('${widget.age} years ${widget.gender}',style: TextStyle(fontSize: 15,color: Color(0xff756d7f)),),
                               SizedBox(height: 8,),
                               Text('${widget.city}',style: kInfoText,),
@@ -107,7 +107,7 @@ class _DonorViewState extends State<DonorView> {
                               SizedBox(width: MediaQuery.of(context).size.width*0.05,),
                               Container(
                                   width: MediaQuery.of(context).size.width*0.35,
-                                  child: Text('${widget.contact}',style: kDateStyle.copyWith(color: Colors.black),)
+                                  child: Text('${widget.mobile}',style: kDateStyle.copyWith(color: Colors.black),)
                               )
                             ],
                           ),

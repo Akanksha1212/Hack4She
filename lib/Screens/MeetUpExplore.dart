@@ -149,16 +149,24 @@ class _ExploreState extends State<Explore> {
                             Documents.forEach((DocumentSnapshot document)
                             {
                               print(document.data);
-                              var name=document.data['title'];
-                              var contact= document.data['mobile'];
-                              var state=document.data['description'];
+                               var title=document.data['title'];
+                               var city=document.data['city'];
+                               var description=document.data['description'];
+                               var date=document.data['date'];
+                               var landamark=document.data['landmark'];
+                               var mobile=document.data['mobile'];
+                               var seats=document.data['seats'];
+                               var state=document.data['state'];
+                               var duration=document.data['duration'];
+
+
 
 
                               if(true)
                               {
                                 usersList.add(
 
-                                    DonorView(name: name, contact:contact, city: "city",neededDate:"neededDate",state:state
+                                    DonorView(title: title, description:description, city: city,date:date,landmark:landamark, mobile:mobile,seats:seats,state:state,duration:duration
                                     ));
                                 //     PatientView(
                                 //       name: name, age: age, bloodGroup: bloodGroup, gender: genders[gender], lastTested: lastTested,

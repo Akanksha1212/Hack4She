@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:streecare/EnterMobile.dart';
+import 'package:streecare/Screens/CreateMeetup.dart';
 import 'package:streecare/Screens/MeetUpExplore.dart';
 import 'package:streecare/Screens/MeetUpHistory.dart';
 
@@ -30,7 +31,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Explore(),
+      home: CreateMeetUp(),
     );
   }
 }
