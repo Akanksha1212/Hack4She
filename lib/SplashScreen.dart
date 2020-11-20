@@ -45,8 +45,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
                 colors: [
+
               Color(0xfffe82a7),
               Color(0xfffe82a7),
+
             ])),
         child: Center(
             child: Column(
@@ -57,7 +59,9 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Center(
               child: Container(
+
                 child: Image.asset("assets/images/ruralwomen.png"),
+
               ),
             )
           ],

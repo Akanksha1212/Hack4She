@@ -25,6 +25,7 @@ class _AddMeetUpState extends State<AddMeetUp> {
       'description': description.text,
       'mobile': mobile.text,
       'seats': seats.text,
+      'date': date,
       'time': time2,
       'posted_by': _uid
     };
@@ -73,33 +74,32 @@ class _AddMeetUpState extends State<AddMeetUp> {
                     ),
                   )),
               Container(
-                  height: 50,
                   child: TextField(
 //                cursorColor: shading,
-                    style: TextStyle(
+                style: TextStyle(
 //                    fontSize: 20, color: primaryColor1
-                        ),
-                    maxLines: 5,
-                    controller: description,
-                    decoration: InputDecoration(
-//                  focusColor: primaryColor1,
-                      hintStyle: TextStyle(
-                        fontSize: 20,
-//                      color: shading
-                      ),
-                      hintText: 'Description',
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-//                        color: shading
-                            ),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-//                        color: shading
-                            ),
-                      ),
                     ),
-                  )),
+                maxLines: 5,
+                controller: description,
+                decoration: InputDecoration(
+//                  focusColor: primaryColor1,
+                  hintStyle: TextStyle(
+                    fontSize: 20,
+//                      color: shading
+                  ),
+                  hintText: 'Description',
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+//                        color: shading
+                        ),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+//                        color: shading
+                        ),
+                  ),
+                ),
+              )),
               FlatButton(
                 child: Text(date),
                 onPressed: () {
