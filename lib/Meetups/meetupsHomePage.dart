@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 //import 'my_flutter_app_icons.dart' as customIcons;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:streecare/Components/my_flutter_app_icons.dart';
-import 'package:streecare/Screens/MeetUpExplore.dart';
+import 'package:streecare/Meetups/MeetUpExplore.dart';
+
 import 'package:streecare/Screens/addMeetUp.dart';
 import 'package:streecare/Screens/meetups.dart';
 

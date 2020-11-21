@@ -28,141 +28,156 @@ class Homepage extends StatelessWidget {
       ),
       drawer: NavDrawer(),
       body: Container(
-        color: Color(0xfffe82a7),
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage('assets/images/stree.jpeg'),
-        //     fit: BoxFit.cover,
-        //   ),
-        // ),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+                'https://i.pinimg.com/564x/b7/b0/87/b7b087bc2cf3b6280a39597fbf2b62c8.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
 
-        child: Stack(
-          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            // Image(
-            //   image: AssetImage('assets/images/ww.png'),
-            // ),
-            Column(
-              //mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                SizedBox(
-                  height: 75,
-                ),
-                Container(
-                  color: Color(0xffffde59),
-                  margin: EdgeInsets.fromLTRB(10, 10, 10, 40),
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(20, 30, 20, 50),
-                    child: Column(
-                      children: [
-                        Card(
-                          child: ListTile(
-                            leading:
-                                Image.asset("assets/images/healthcare.png"),
-                            title: Text('Health & Lifestyle'),
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 25, vertical: 20),
-                            // subtitle: Text(''),
-                            // isThreeLine: true,
-                            trailing: RaisedButton(
-                                child: Text('Go'),
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                    side: BorderSide(color: Colors.black)),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Health()),
-                                  );
-                                }),
-                          ),
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Card(
-                          child: ListTile(
-                            leading: Image.asset("assets/images/calendar.png"),
-                            title: Text('Meetups'),
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 25, vertical: 20),
-                            // subtitle: Text(''),
-                            // isThreeLine: true,
-                            trailing: RaisedButton(
-                                child: Text('Go'),
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                    side: BorderSide(color: Colors.black)),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            MeetUpsHomePage()),
-                                  );
-                                }),
-                          ),
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Card(
-                          child: ListTile(
-                            leading: Image.asset("assets/images/job.png"),
-                            title: Text('Jobs'),
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 25, vertical: 20),
-                            // subtitle: Text(''),
-                            // isThreeLine: true,
-                            trailing: RaisedButton(
-                                child: Text('Go'),
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                    side: BorderSide(color: Colors.black)),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Jobs()),
-                                  );
-                                }),
-                          ),
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+            SizedBox(
+              height: 15,
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Image(
-                  image: AssetImage('assets/images/ww.png'),
-                )
-              ],
-            )
+            Container(
+              color: Color(0xffffde59),
+              margin: EdgeInsets.fromLTRB(20, 10, 20, 40),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                child: Column(
+                  children: [
+                    Card(
+                      child: ListTile(
+                        leading: Image.asset("assets/images/healthcare.png"),
+                        title: Text('Health & Lifestyle'),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                        // subtitle: Text(''),
+                        // isThreeLine: true,
+                        trailing: RaisedButton(
+                            child: Text('Go'),
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                                side: BorderSide(color: Colors.black)),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Health()),
+                              );
+                            }),
+                      ),
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: Image.asset("assets/images/calendar.png"),
+                        title: Text('Meetups'),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                        // subtitle: Text(''),
+                        // isThreeLine: true,
+                        trailing: RaisedButton(
+                            child: Text('Go'),
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                                side: BorderSide(color: Colors.black)),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MeetUpsHomePage()),
+                              );
+                            }),
+                      ),
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: Image.asset("assets/images/job.png"),
+                        title: Text('Jobs'),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                        // subtitle: Text(''),
+                        // isThreeLine: true,
+                        trailing: RaisedButton(
+                            child: Text('Go'),
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                                side: BorderSide(color: Colors.black)),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Jobs()),
+                              );
+                            }),
+                      ),
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Card(
+                      child: ListTile(
+                        leading: Image.asset("assets/images/shopping-cart.png"),
+                        title: Text('Store'),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                        // subtitle: Text(''),
+                        // isThreeLine: true,
+                        trailing: RaisedButton(
+                            child: Text('Go'),
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                                side: BorderSide(color: Colors.black)),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Jobs()),
+                              );
+                            }),
+                      ),
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
+        // Column(
+        //   mainAxisAlignment: MainAxisAlignment.end,
+        //   children: [
+        //     Image(
+        //       image: AssetImage('assets/images/ww.png'),
+        //     )
+        //   ],
+        // )
       ),
     );
   }
