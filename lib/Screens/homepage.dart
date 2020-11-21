@@ -6,6 +6,7 @@ import 'package:streecare/Screens/health.dart';
 import 'package:streecare/Screens/jobs.dart';
 import 'package:streecare/Screens/meetups.dart';
 import 'package:streecare/Meetups/meetupsHomePage.dart';
+import 'package:streecare/onlinestore/StoreHomePage.dart';
 
 class Homepage extends StatelessWidget {
   @override
@@ -157,7 +158,8 @@ class Homepage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Jobs()),
+                                MaterialPageRoute(
+                                    builder: (context) => StoreHomePage()),
                               );
                             }),
                       ),

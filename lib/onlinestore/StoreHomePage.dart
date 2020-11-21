@@ -8,6 +8,9 @@ import 'package:streecare/Jobs/JobExplore.dart';
 import 'package:streecare/Meetups/CreateMeetup.dart';
 import 'package:streecare/Meetups/MeetUpBoard.dart';
 import 'package:streecare/Meetups/MeetUpExplore.dart';
+import 'package:streecare/onlinestore/CreateStore.dart';
+
+import 'StoreExplore.dart';
 
 class StoreHomePage extends StatefulWidget {
   @override
@@ -24,7 +27,7 @@ class _StoreHomePageState extends State<StoreHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'Jobs',
+              'Store',
               style: TextStyle(fontSize: 30, color: Colors.white),
             ),
             Center(
@@ -72,8 +75,12 @@ class _StoreHomePageState extends State<StoreHomePage> {
                                           style: TextStyle(
                                               color: Color(0xff75c7fb))),
                                       trailing: GestureDetector(
-                                        onTap: (){
-                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>CreateJobs()));
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      CreateStore()));
                                         },
                                         child: Container(
                                             decoration: BoxDecoration(
@@ -108,8 +115,12 @@ class _StoreHomePageState extends State<StoreHomePage> {
                                             TextStyle(color: Color(0xff75c7fb)),
                                       ),
                                       trailing: GestureDetector(
-                                        onTap: (){
-                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>JobExplore()));
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StoreExplore()));
                                         },
                                         child: Container(
                                             decoration: BoxDecoration(
@@ -123,7 +134,6 @@ class _StoreHomePageState extends State<StoreHomePage> {
                           ],
                         ),
                       ),
-
                     ],
                   ),
                 ],
