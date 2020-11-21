@@ -48,7 +48,7 @@ final kToggleNotSelected = TextStyle(
 );
 
 final kLabelStyle = TextStyle(
-  fontSize: 18,
+  fontSize: 16,
   fontWeight: FontWeight.w700,
 );
 

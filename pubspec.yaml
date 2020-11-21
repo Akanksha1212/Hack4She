@@ -40,7 +40,9 @@ dependencies:
   geoflutterfire: ^2.1.0
   geolocator: ^5.3.1
   translator: ^0.1.5
+  flutter_spinkit: ^4.1.2
   material_design_icons_flutter: ^4.0.5555
+  fluttertoast: ^7.1.1
 
 
 
