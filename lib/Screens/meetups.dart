@@ -44,14 +44,10 @@ class _MeetupsState extends State<Meetups> {
 
   dynamic text = "";
 
-  _translate() async {
+  _translate(String data) async {
     final translator = GoogleTranslator();
-    var translation = await translator
-        .translate("I am very good here. how are you ?", to: 'hi');
-    setState(() {
-      text = translation.text;
-    });
-    print(translation);
+    var translation = await translator.translate(data, to: 'hi');
+    return translation.text;
   }
 
   @override

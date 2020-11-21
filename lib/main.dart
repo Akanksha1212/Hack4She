@@ -4,9 +4,8 @@ import 'package:streecare/EnterMobile.dart';
 import 'package:streecare/Jobs/CreateJobs.dart';
 
 import 'package:streecare/Meetups/MeetUpBoard.dart';
-import 'file:///D:/Hack4She/lib/Meetups/CreateMeetup.dart';
-import 'file:///D:/Hack4She/lib/Meetups/MeetUpExplore.dart';
-
+import 'package:streecare/Meetups/CreateMeetup.dart';
+import 'package:streecare/Meetups/MeetUpExplore.dart';
 
 import 'package:streecare/Screens/addMeetUp.dart';
 import 'package:streecare/Screens/meetups.dart';

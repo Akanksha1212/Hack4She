@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:streecare/Screens/health.dart';
 import 'package:streecare/Screens/jobs.dart';
 import 'package:streecare/Screens/meetups.dart';
-import 'file:///D:/Hack4She/lib/Meetups/meetupsHomePage.dart';
+import 'package:streecare/Meetups/meetupsHomePage.dart';
 
 class Homepage extends StatelessWidget {
   @override
