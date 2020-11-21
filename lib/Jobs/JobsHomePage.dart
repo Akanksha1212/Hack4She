@@ -3,16 +3,18 @@ import 'package:google_fonts/google_fonts.dart';
 //import 'my_flutter_app_icons.dart' as customIcons;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:streecare/Components/my_flutter_app_icons.dart';
+import 'package:streecare/Jobs/CreateJobs.dart';
+import 'package:streecare/Jobs/JobExplore.dart';
 import 'package:streecare/Meetups/CreateMeetup.dart';
 import 'package:streecare/Meetups/MeetUpBoard.dart';
 import 'package:streecare/Meetups/MeetUpExplore.dart';
 
-class MeetUpsHomePage extends StatefulWidget {
+class JobsHomePage extends StatefulWidget {
   @override
-  _MeetUpsHomePageState createState() => _MeetUpsHomePageState();
+  _JobsHomePageState createState() => _JobsHomePageState();
 }
 
-class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
+class _JobsHomePageState extends State<JobsHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +73,7 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                               color: Color(0xff75c7fb))),
                                       trailing: GestureDetector(
                                         onTap: (){
-                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>CreateMeetUp()));
+                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>CreateJobs()));
                                         },
                                         child: Container(
                                             decoration: BoxDecoration(
@@ -107,7 +109,7 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                       ),
                                       trailing: GestureDetector(
                                         onTap: (){
-                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>Explore()));
+                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>JobExplore()));
                                         },
                                         child: Container(
                                             decoration: BoxDecoration(

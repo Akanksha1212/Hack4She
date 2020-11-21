@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:streecare/EnterMobile.dart';
 import 'package:streecare/Jobs/CreateJobs.dart';
+import 'package:streecare/Jobs/JobsHomePage.dart';
 
 import 'package:streecare/Meetups/MeetUpBoard.dart';
 import 'package:streecare/Meetups/CreateMeetup.dart';
@@ -33,7 +34,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+<<<<<<< HEAD
       home: SplashScreen(),
+=======
+      home: JobsHomePage(),
+>>>>>>> 768a0fafa3539707464a0ce920a4761e36dca089
     );
   }
 }

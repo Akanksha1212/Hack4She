@@ -3,17 +3,18 @@ import 'package:google_fonts/google_fonts.dart';
 //import 'my_flutter_app_icons.dart' as customIcons;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:streecare/Components/my_flutter_app_icons.dart';
+import 'package:streecare/Jobs/CreateJobs.dart';
+import 'package:streecare/Jobs/JobExplore.dart';
+import 'package:streecare/Meetups/CreateMeetup.dart';
+import 'package:streecare/Meetups/MeetUpBoard.dart';
 import 'package:streecare/Meetups/MeetUpExplore.dart';
 
-import 'package:streecare/Screens/addMeetUp.dart';
-import 'package:streecare/Screens/meetups.dart';
-
-class MeetUpsHomePage extends StatefulWidget {
+class StoreHomePage extends StatefulWidget {
   @override
-  _MeetUpsHomePageState createState() => _MeetUpsHomePageState();
+  _StoreHomePageState createState() => _StoreHomePageState();
 }
 
-class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
+class _StoreHomePageState extends State<StoreHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,12 +24,12 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'EVENT SECTION',
+              'Jobs',
               style: TextStyle(fontSize: 30, color: Colors.white),
             ),
             Center(
               child: Text(
-                'What are your next steps and goals?\nSchedule & Explore the events near you!',
+                'Want to try rural handmade products ?\n Explore the products near you!',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),
             ),
@@ -67,22 +68,18 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: ListTile(
-                                      title: Text('Schedule',
+                                      title: Text('Post Products',
                                           style: TextStyle(
                                               color: Color(0xff75c7fb))),
                                       trailing: GestureDetector(
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>CreateJobs()));
+                                        },
                                         child: Container(
                                             decoration: BoxDecoration(
                                                 color: Color(0xff75c7fb),
                                                 shape: BoxShape.circle),
                                             child: Icon(Icons.arrow_forward)),
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      AddMeetUp()));
-                                        },
                                       ),
                                     ),
                                   )),
@@ -106,24 +103,19 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                     padding: const EdgeInsets.all(8.0),
                                     child: ListTile(
                                       title: Text(
-                                        'Explore',
+                                        'Explore Products',
                                         style:
                                             TextStyle(color: Color(0xff75c7fb)),
                                       ),
                                       trailing: GestureDetector(
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>JobExplore()));
+                                        },
                                         child: Container(
                                             decoration: BoxDecoration(
                                                 color: Color(0xff75c7fb),
                                                 shape: BoxShape.circle),
                                             child: Icon(Icons.arrow_forward)),
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Explore()));
-
-                                        },
                                       ),
                                     ),
                                   )),
@@ -131,51 +123,7 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                           ],
                         ),
                       ),
-                      Stack(children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-//                            margin: EdgeInsets.fromLTRB(10, 10, 10, 40),
-                                width: MediaQuery.of(context).size.width / 1.5,
-                                child: Card(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: ListTile(
-                                        title: Text('Meet Ups',
-                                            style: TextStyle(
-                                                color: Color(0xff75c7fb))),
-                                        trailing: GestureDetector(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                color: Color(0xff75c7fb),
-                                                shape: BoxShape.circle),
-                                            child: Icon(Icons.arrow_forward),
-                                          ),
-                                        ),
-                                      ),
-                                    )),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Image(
-                              height: MediaQuery.of(context).size.height / 2,
-                              width: MediaQuery.of(context).size.width / 1.25,
-                              image: AssetImage('assets/images/1.png'),
-                            ),
-                          ],
-                        )
-                      ]),
+
                     ],
                   ),
                 ],

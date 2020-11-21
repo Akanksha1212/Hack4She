@@ -4,12 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 
 import 'package:streecare/Components/styles.dart';
+import 'package:streecare/Jobs/JobExplore.dart';
 
 
 
@@ -56,12 +58,24 @@ var date = DateFormat.yMMMd().format(DateTime.now());
      'salary':salary.text,
      'city':city.text,
      'type':job.text,
+     "duration":duration.text,
      'timstamp':DateTime.now(),
      'attendees': FieldValue.arrayUnion([]),
      'created': _uid
 
    };
-   Firestore.instance.collection('MeetUps').document().setData(data);
+   Firestore.instance.collection('Jobs').document().setData(data);
+   Fluttertoast.showToast(
+       msg: "Successfully Deleted the event",
+       toastLength: Toast.LENGTH_SHORT,
+       gravity: ToastGravity.CENTER,
+       timeInSecForIosWeb: 1,
+       backgroundColor: Colors.pink,
+       textColor: Colors.white,
+       fontSize: 16.0
+   );
+   Navigator.push(context, MaterialPageRoute(builder:(context)=>JobExplore()));
+
  }
  final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
  GeoFirePoint _myLocation;

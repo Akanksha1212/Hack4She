@@ -4,23 +4,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 
 import 'package:streecare/Components/styles.dart';
-import 'package:streecare/Meetups/MeetUpExplore.dart';
 
 
 
-class CreateMeetUp extends StatefulWidget {
+ class CreateStore extends StatefulWidget {
   @override
-  _CreateMeetUpState createState() => _CreateMeetUpState();
+  _CreateStoreState createState() => _CreateStoreState();
 }
 
-class _CreateMeetUpState extends State<CreateMeetUp> {
+class _CreateStoreState extends State<CreateStore> {
 
 
  DateFormat formatter = DateFormat.yMd();
@@ -32,15 +30,15 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
   //Form Variables
  DateTime testDate = DateTime.now();
   var uid;
-  var title = TextEditingController();
+  var role = TextEditingController();
   var description = TextEditingController();
- var state = TextEditingController();
+ var salary = TextEditingController();
  var city = TextEditingController();
- var landmark=TextEditingController();
+ var job=TextEditingController();
   var mobile ;
-  var seats = TextEditingController();
+  var posts = TextEditingController();
   var duration=TextEditingController();
-  var date = 'Select date';
+var date = DateFormat.yMMMd().format(DateTime.now());
   var time2 = 'Select Time';
   bool isNumber=false;
 
@@ -49,26 +47,21 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
    final _user = await FirebaseAuth.instance.currentUser();
    final _uid = _user.uid;
    Map<String, Object> data = <String, Object>{
-     'title': title.text,
+     'role': role.text,
      'description': description.text,
      'mobile': mobile,
-     'seats': seats.text,
-     'date': date,
-     'time': time2,
+     'posts': posts.text,
      'posted_by': _uid,
      'location': _myLocation.data,
-     'state':state.text,
+     'salary':salary.text,
      'city':city.text,
-     'landmark':landmark.text,
+     'type':job.text,
      'timstamp':DateTime.now(),
      'attendees': FieldValue.arrayUnion([]),
      'created': _uid
 
    };
-   Firestore.instance.collection('MeetUps').document().setData(data).then((value) => {
-
-
-   });
+   Firestore.instance.collection('Jobs').document().setData(data);
  }
  final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
  GeoFirePoint _myLocation;
@@ -135,7 +128,7 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text('Create a Meetup',style: kMainTitle,),
+                    Text('Post A Job',style: kMainTitle,),
                     //Icon(Icons.favorite,color: Color(0xffc62828),)
                   ],
                 ),
@@ -166,7 +159,7 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                       Container(
                                         width: MediaQuery.of(context).size.width*0.19,
                                         child: Text(
-                                          'Title',
+                                          'Role',
                                           style: kLabelStyle,
 
                                         ),
@@ -174,94 +167,94 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                       SizedBox(width: 15,),
                                       Flexible(
                                         child: TextField(
-                                          controller: title,
+                                          controller: role,
                                           textAlign: TextAlign.center,
                                           decoration: kTextFieldDecor.copyWith(
-                                              hintText: "Enter the title"
+                                              hintText: "Ex: Bangles maker"
                                           ),
                                         ),
                                       )
                                     ],
                                   ),
                                 ),
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 10),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Flexible(
-                                        child: Container(
-                                          child: Text('Date ',style: kLabelStyle,),
-                                        ),
-                                      ),
-                                      Row(
-                                        children: <Widget>[
-                                          Container(
-                                            width: MediaQuery.of(context).size.width*0.45,
-                                            height: 45,
-                                            padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                                            decoration: BoxDecoration(
-                                              color: Color(0xffef9a9a),
-                                              borderRadius: BorderRadius.horizontal(left: Radius.circular(10)),
-                                            ),
-                                            child: Center(child: Text(formatter.format(testDate),style: kDateStyle,)),
-                                          ),
-                                          InkWell(
-                                            onTap: ()=> _selectDate(context),
-                                            child: Container(
-                                              height: 45,
-                                              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                                              decoration: BoxDecoration(
-                                                color: Color(0xffffcdd2),
-                                                borderRadius: BorderRadius.horizontal(right: Radius.circular(10)),
-                                              ),
-                                              child: Icon(
-                                                FontAwesomeIcons.calendarAlt,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 10),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Flexible(
-                                        child: Container(
-                                          child: Text('Time',style: kLabelStyle,),
-                                        ),
-                                      ),
-                                      Row(
-                                        children: <Widget>[
-                                          TimePickerSpinner(
-                                            is24HourMode: false,
-                                            normalTextStyle: TextStyle(
-                                                fontSize: 16,
-                                                color: Colors.black
-                                            ),
-                                            highlightedTextStyle: TextStyle(fontSize: 16,
-                                                color: Color(0xffffcdd2)),
-
-                                            spacing: 40,
-                                            itemHeight: 25,
-                                            isForce2Digits: true,
-                                            onTimeChange: (time) {
-                                              setState(() {
-                                                time2 = DateFormat('Hm').format(time);
-                                              });
-                                            },
-                                          ),
-
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
+                                // Container(
+                                //   margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 10),
+                                //   child: Row(
+                                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                //     children: <Widget>[
+                                //       Flexible(
+                                //         child: Container(
+                                //           child: Text('Date ',style: kLabelStyle,),
+                                //         ),
+                                //       ),
+                                //       Row(
+                                //         children: <Widget>[
+                                //           Container(
+                                //             width: MediaQuery.of(context).size.width*0.45,
+                                //             height: 45,
+                                //             padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+                                //             decoration: BoxDecoration(
+                                //               color: Color(0xffef9a9a),
+                                //               borderRadius: BorderRadius.horizontal(left: Radius.circular(10)),
+                                //             ),
+                                //             child: Center(child: Text(formatter.format(testDate),style: kDateStyle,)),
+                                //           ),
+                                //           InkWell(
+                                //             onTap: ()=> _selectDate(context),
+                                //             child: Container(
+                                //               height: 45,
+                                //               padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                                //               decoration: BoxDecoration(
+                                //                 color: Color(0xffffcdd2),
+                                //                 borderRadius: BorderRadius.horizontal(right: Radius.circular(10)),
+                                //               ),
+                                //               child: Icon(
+                                //                 FontAwesomeIcons.calendarAlt,
+                                //                 color: Colors.black,
+                                //               ),
+                                //             ),
+                                //           )
+                                //         ],
+                                //       )
+                                //     ],
+                                //   ),
+                                // ),
+                                // Container(
+                                //   margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 10),
+                                //   child: Row(
+                                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                //     children: <Widget>[
+                                //       Flexible(
+                                //         child: Container(
+                                //           child: Text('Time',style: kLabelStyle,),
+                                //         ),
+                                //       ),
+                                //       Row(
+                                //         children: <Widget>[
+                                //           TimePickerSpinner(
+                                //             is24HourMode: false,
+                                //             normalTextStyle: TextStyle(
+                                //                 fontSize: 16,
+                                //                 color: Colors.black
+                                //             ),
+                                //             highlightedTextStyle: TextStyle(fontSize: 16,
+                                //                 color: Color(0xffffcdd2)),
+                                //
+                                //             spacing: 40,
+                                //             itemHeight: 25,
+                                //             isForce2Digits: true,
+                                //             onTimeChange: (time) {
+                                //               setState(() {
+                                //                 time2 = DateFormat('Hm').format(time);
+                                //               });
+                                //             },
+                                //           ),
+                                //
+                                //         ],
+                                //       )
+                                //     ],
+                                //   ),
+                                // ),
                                 Container(
                                   margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 15),
                                   child: Row(
@@ -281,7 +274,7 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                           textAlign: TextAlign.center,
 
                                           decoration: kTextFieldDecor.copyWith(
-                                            hintText: '3 hours',
+                                            hintText: '3 months',
                                             counterText: '',
                                             //errorText: isNumber?null:'Nearby landmark'
                                           ),
@@ -340,7 +333,7 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                       Container(
                                         width: MediaQuery.of(context).size.width*0.19,
                                         child: Text(
-                                          'No of Seats',
+                                          'No of posts',
                                           style: kLabelStyle,
                                         ),
                                       ),
@@ -348,7 +341,7 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                       Flexible(
                                         child: TextField(
 
-                                          controller: seats,
+                                          controller: posts,
 
                                           textAlign: TextAlign.center,
                                           keyboardType: TextInputType.phone,
@@ -369,7 +362,7 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                       Container(
                                         width: MediaQuery.of(context).size.width*0.19,
                                         child: Text(
-                                          'Landmark',
+                                          'Type Of Job',
                                           style: kLabelStyle,
                                         ),
                                       ),
@@ -377,11 +370,11 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                       Flexible(
                                         child: TextField(
 
-                                          controller: landmark,
+                                          controller: job,
                                           textAlign: TextAlign.center,
 
                                           decoration: kTextFieldDecor.copyWith(
-                                              hintText: 'Near hdfc bank , gandhi street',
+                                              hintText: 'Office/Work from Home',
                                               counterText: '',
                                               //errorText: isNumber?null:'Nearby landmark'
                                           ),
@@ -466,17 +459,17 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                       Container(
                                         width: MediaQuery.of(context).size.width*0.19,
                                         child: Text(
-                                          'State',
+                                          'Salary',
                                           style: kLabelStyle,
                                         ),
                                       ),
                                       SizedBox(width: 15,),
                                       Flexible(
                                         child: TextField(
-                                          controller: state,
+                                          controller: salary,
                                           textAlign: TextAlign.center,
                                           decoration: kTextFieldDecor.copyWith(
-                                              hintText: 'Ex: Andhra Pradesh'
+                                              hintText: 'Ex: 10,00 per month'
                                           ),
                                         ),
                                       )
@@ -497,7 +490,7 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
-                                        'More about the meetup',
+                                        'Job Description',
                                         style: kLabelStyle,
                                       ),
                                       SizedBox(height: 15,),
@@ -506,7 +499,7 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                         textAlign: TextAlign.center,
                                         maxLines: 5,
                                         decoration: kTextFieldDecor.copyWith(
-                                            hintText: 'In this workshop you will learn how to use internet for farming'
+                                            hintText: 'People who have design skills to make good looking hand made bangles'
                                         ),
                                       )
                                     ],
