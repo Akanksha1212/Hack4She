@@ -30,9 +30,9 @@ class _CreateStoreState extends State<CreateStore> {
   //Form Variables
  DateTime testDate = DateTime.now();
   var uid;
-  var role = TextEditingController();
+  var name = TextEditingController();
   var description = TextEditingController();
- var salary = TextEditingController();
+ var price = TextEditingController();
  var city = TextEditingController();
  var job=TextEditingController();
   var mobile ;
@@ -47,17 +47,16 @@ var date = DateFormat.yMMMd().format(DateTime.now());
    final _user = await FirebaseAuth.instance.currentUser();
    final _uid = _user.uid;
    Map<String, Object> data = <String, Object>{
-     'role': role.text,
+     'name': name.text,
      'description': description.text,
      'mobile': mobile,
-     'posts': posts.text,
-     'posted_by': _uid,
+
      'location': _myLocation.data,
-     'salary':salary.text,
+     'price':price.text,
      'city':city.text,
-     'type':job.text,
+
      'timstamp':DateTime.now(),
-     'attendees': FieldValue.arrayUnion([]),
+
      'created': _uid
 
    };
@@ -128,7 +127,7 @@ var date = DateFormat.yMMMd().format(DateTime.now());
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text('Post A Job',style: kMainTitle,),
+                    Text('Add your product',style: kMainTitle,),
                     //Icon(Icons.favorite,color: Color(0xffc62828),)
                   ],
                 ),
@@ -159,7 +158,7 @@ var date = DateFormat.yMMMd().format(DateTime.now());
                                       Container(
                                         width: MediaQuery.of(context).size.width*0.19,
                                         child: Text(
-                                          'Role',
+                                          'Product Name',
                                           style: kLabelStyle,
 
                                         ),
@@ -167,10 +166,10 @@ var date = DateFormat.yMMMd().format(DateTime.now());
                                       SizedBox(width: 15,),
                                       Flexible(
                                         child: TextField(
-                                          controller: role,
+                                          controller: name,
                                           textAlign: TextAlign.center,
                                           decoration: kTextFieldDecor.copyWith(
-                                              hintText: "Ex: Bangles maker"
+                                              hintText: "Ex: HandMade bangles"
                                           ),
                                         ),
                                       )
@@ -262,7 +261,7 @@ var date = DateFormat.yMMMd().format(DateTime.now());
                                       Container(
                                         width: MediaQuery.of(context).size.width*0.19,
                                         child: Text(
-                                          'Duration',
+                                          'price',
                                           style: kLabelStyle,
                                         ),
                                       ),
@@ -274,7 +273,7 @@ var date = DateFormat.yMMMd().format(DateTime.now());
                                           textAlign: TextAlign.center,
 
                                           decoration: kTextFieldDecor.copyWith(
-                                            hintText: '3 months',
+                                            hintText: '300',
                                             counterText: '',
                                             //errorText: isNumber?null:'Nearby landmark'
                                           ),
@@ -326,156 +325,6 @@ var date = DateFormat.yMMMd().format(DateTime.now());
                                     ],
                                   ),
                                 ),
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 15),
-                                  child: Row(
-                                    children: <Widget>[
-                                      Container(
-                                        width: MediaQuery.of(context).size.width*0.19,
-                                        child: Text(
-                                          'No of posts',
-                                          style: kLabelStyle,
-                                        ),
-                                      ),
-                                      SizedBox(width: 15,),
-                                      Flexible(
-                                        child: TextField(
-
-                                          controller: posts,
-
-                                          textAlign: TextAlign.center,
-                                          keyboardType: TextInputType.phone,
-                                          decoration: kTextFieldDecor.copyWith(
-                                              hintText: '20',
-                                              counterText: '',
-                                              errorText: isNumber?null:'Please enter no of seats'
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 15),
-                                  child: Row(
-                                    children: <Widget>[
-                                      Container(
-                                        width: MediaQuery.of(context).size.width*0.19,
-                                        child: Text(
-                                          'Type Of Job',
-                                          style: kLabelStyle,
-                                        ),
-                                      ),
-                                      SizedBox(width: 15,),
-                                      Flexible(
-                                        child: TextField(
-
-                                          controller: job,
-                                          textAlign: TextAlign.center,
-
-                                          decoration: kTextFieldDecor.copyWith(
-                                              hintText: 'Office/Work from Home',
-                                              counterText: '',
-                                              //errorText: isNumber?null:'Nearby landmark'
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-
-                                // Container(
-                                //   margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 15),
-                                //   child: Row(
-                                //     children: <Widget>[
-                                //       Container(
-                                //         width: MediaQuery.of(context).size.width*0.19,
-                                //         child: Text(
-                                //           'Pincode',
-                                //           style: kLabelStyle,
-                                //         ),
-                                //       ),
-                                //       SizedBox(width: 15,),
-                                //       Flexible(
-                                //         child: TextField(
-                                //           onChanged: (value){
-                                //             pinCode = value.trim();
-                                //             if(value.length == 6)
-                                //             {
-                                //               setState(() {
-                                //                 isPincode = true;
-                                //               });
-                                //               //myJson.getData(pinCode);
-                                //             }
-                                //             else{
-                                //               setState(() {
-                                //                 isPincode = false;
-                                //               });
-                                //             }
-                                //           },
-                                //           textAlign: TextAlign.center,
-                                //           maxLength: 6,
-                                //           keyboardType: TextInputType.phone,
-                                //           decoration: kTextFieldDecor.copyWith(
-                                //               hintText: 'Ex: 530017',
-                                //               counterText: '',
-                                //               errorText: isPincode?null:'Please enter a valid Pincode'
-                                //           ),
-                                //         ),
-                                //       )
-                                //     ],
-                                //   ),
-                                // ),
-
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 15),
-                                  child: Row(
-                                    children: <Widget>[
-                                      Container(
-                                        width: MediaQuery.of(context).size.width*0.19,
-                                        child: Text(
-                                          'City',
-                                          style: kLabelStyle,
-                                        ),
-                                      ),
-                                      SizedBox(width: 15,),
-                                      Flexible(
-                                        child: TextField(
-                                          controller: city,
-                                          textAlign: TextAlign.center,
-                                          decoration: kTextFieldDecor.copyWith(
-                                              hintText: 'Ex: Visakhapatnam'
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,vertical: 15),
-                                  child: Row(
-                                    children: <Widget>[
-                                      Container(
-                                        width: MediaQuery.of(context).size.width*0.19,
-                                        child: Text(
-                                          'Salary',
-                                          style: kLabelStyle,
-                                        ),
-                                      ),
-                                      SizedBox(width: 15,),
-                                      Flexible(
-                                        child: TextField(
-                                          controller: salary,
-                                          textAlign: TextAlign.center,
-                                          decoration: kTextFieldDecor.copyWith(
-                                              hintText: 'Ex: 10,00 per month'
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
 
 
 
@@ -490,7 +339,7 @@ var date = DateFormat.yMMMd().format(DateTime.now());
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
-                                        'Job Description',
+                                        'More Info about product',
                                         style: kLabelStyle,
                                       ),
                                       SizedBox(height: 15,),
@@ -499,7 +348,7 @@ var date = DateFormat.yMMMd().format(DateTime.now());
                                         textAlign: TextAlign.center,
                                         maxLines: 5,
                                         decoration: kTextFieldDecor.copyWith(
-                                            hintText: 'People who have design skills to make good looking hand made bangles'
+                                            hintText: 'Available in different colors'
                                         ),
                                       )
                                     ],
@@ -532,7 +381,7 @@ var date = DateFormat.yMMMd().format(DateTime.now());
                                       child: Padding(
                                         padding: EdgeInsets.all(13),
                                         child: Text(
-                                          'Create',
+                                          'Add Product',
                                           style: kGenderSelected.copyWith(
                                               fontSize: 20
                                           ),

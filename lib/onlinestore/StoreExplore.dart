@@ -51,7 +51,7 @@ class _StoreExploreState extends State<StoreExplore> {
 // get the collection reference or query
     var collectionReference = Firestore.instance.collection('MeetUps');
 
-    double radius = 50;
+    double radius = 1000;
     String field = 'location';
 
     subscription = await geo
