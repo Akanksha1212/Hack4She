@@ -30,7 +30,7 @@ class _HealthState extends State<Health> {
               color: Color(0xffffde59),
               padding: EdgeInsets.all(30),
               child: Text(
-                'Hi, I am your Sakhi. I am here to help you with your questions. Just click on \'Talk to Sakhi\' ',
+                'नमस्कार! मैं तुम्हारी सखी हूं। मैं यहां आपके सवालों में मदद करने के लिए हूं। बस \'टॉक टू सखी\' पर क्लिक करें',
                 style: TextStyle(fontSize: 15),
               ),
             ),
