@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class ThirdScreen extends StatefulWidget {
+class Family extends StatefulWidget {
   @override
-  ThirdScreenState createState() => new ThirdScreenState();
+  FamilyState createState() => new FamilyState();
 }
 
-class ThirdScreenState extends State<ThirdScreen> {
+class FamilyState extends State<Family> {
   double screenHeight;
   var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     YoutubePlayerController _controller = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(
-          "https://www.youtube.com/watch?v=JIAzI29-otM"),
+          "https://www.youtube.com/watch?v=kz6tCyKQDEc"),
       flags: YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
@@ -22,20 +22,13 @@ class ThirdScreenState extends State<ThirdScreen> {
     );
     YoutubePlayerController _controller1 = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(
-          "https://www.youtube.com/watch?v=WaOxj6hKulY"),
+          "https://www.youtube.com/watch?v=raD6bhrjwes"),
       flags: YoutubePlayerFlags(
         autoPlay: false,
         mute: true,
       ),
     );
-    YoutubePlayerController _controller2 = YoutubePlayerController(
-      initialVideoId: YoutubePlayer.convertUrlToId(
-          "https://www.youtube.com/watch?v=RDQviTbHmOg"),
-      flags: YoutubePlayerFlags(
-        autoPlay: false,
-        mute: true,
-      ),
-    );
+
     screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -51,15 +44,47 @@ class ThirdScreenState extends State<ThirdScreen> {
                 child: Column(
                   children: <Widget>[
                     SizedBox(
-                      height: 40,
+                      height: 50,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset("assets/images/calendar.png"),
+                            title: Text('Meetups'),
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 25, vertical: 20),
+                            // subtitle: Text(''),
+                            // isThreeLine: true,
+                            trailing: RaisedButton(
+                                child: Text('Go'),
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18),
+                                    side: BorderSide(color: Colors.black)),
+                                onPressed: () {
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //       builder: (context) =>
+                                  //           MeetUpsHomePage()),
+                                  // );
+                                }),
+                          ),
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+                          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                           child: Text(
-                            'Watch these videos to get more information about symptoms and self examination',
+                            'Watch these videos to get more information about family planning',
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
                         SizedBox(
@@ -81,10 +106,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    YoutubePlayer(
-                      controller: _controller2,
-                      liveUIColor: Colors.amber,
-                    ),
+
                     // add form here
                   ],
                 ),

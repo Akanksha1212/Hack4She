@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:streecare/Screens/family.dart';
 import 'package:streecare/Screens/health.dart';
 import 'package:streecare/Screens/meetups.dart';
 import 'package:streecare/Screens/jobs.dart';
@@ -13,8 +14,8 @@ class GridDashboard extends StatelessWidget {
 
   Items item2 = new Items(
     title: "Family",
-    img: "assets/images/calendar.png",
-    screen: Meetups(),
+    img: "assets/images/family.png",
+    screen: Family(),
   );
   Items item3 = new Items(
     title: "Malnutrition",
