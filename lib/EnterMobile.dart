@@ -66,8 +66,8 @@ class _EnterMobileState extends State<EnterMobile> {
                               begin: Alignment(-1.52, 1.0),
                               end: Alignment(1.13, -0.95),
                               colors: [
-                                const Color(0xffee00ff),
-                                const Color(0xff6600ff)
+                                const Color(0xfffe82a7),
+                                const Color(0xfffe82a7),
                               ],
                               stops: [0.0, 1.0],
                             ),
@@ -136,13 +136,13 @@ class _EnterMobileState extends State<EnterMobile> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.09,
-                    ),
-                    Image.asset('assets/images/Phone.png'),
+                    Image(
+                        height: MediaQuery.of(context).size.height / 2,
+                        width: MediaQuery.of(context).size.width / 2,
+                        image: AssetImage('assets/images/w2.png')),
                   ],
                 ),
-                SizedBox(height: SizeConfig1.blockSizeVertical * 3),
+//                SizedBox(height: SizeConfig1.blockSizeVertical * 3),
                 Container(
                   width: SizeConfig1.blockSizeHorizontal * 70,
                   height: SizeConfig1.blockSizeVertical * 7.7,
@@ -223,8 +223,8 @@ class _EnterMobileState extends State<EnterMobile> {
                         begin: Alignment(-1.35, 2.14),
                         end: Alignment(1.13, -2.03),
                         colors: [
-                          const Color(0xffee00ff),
-                          const Color(0xff6600ff)
+                          const Color(0xfffe82a7),
+                          const Color(0xfffe82a7),
                         ],
                         stops: [0.0, 1.0],
                       ),
@@ -237,7 +237,7 @@ class _EnterMobileState extends State<EnterMobile> {
                       ],
                     ),
                     child: Icon(
-                      FontAwesomeIcons.chevronRight,
+                      Icons.arrow_forward,
                       color: Colors.white,
                       size: 30,
                     ),
@@ -261,7 +261,7 @@ class _EnterMobileState extends State<EnterMobile> {
                         ),
                         elevation: 0,
                         duration: Duration(seconds: 2),
-                        backgroundColor: Color(0xffBA00FF),
+                        backgroundColor: Color(0xfffe82a7),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(5),

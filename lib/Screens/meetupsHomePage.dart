@@ -3,6 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 //import 'my_flutter_app_icons.dart' as customIcons;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:streecare/Components/my_flutter_app_icons.dart';
+import 'package:streecare/Screens/MeetUpExplore.dart';
+import 'package:streecare/Screens/addMeetUp.dart';
+import 'package:streecare/Screens/meetups.dart';
 
 class MeetUpsHomePage extends StatefulWidget {
   @override
@@ -72,6 +75,13 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                                 color: Color(0xff75c7fb),
                                                 shape: BoxShape.circle),
                                             child: Icon(Icons.arrow_forward)),
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      AddMeetUp()));
+                                        },
                                       ),
                                     ),
                                   )),
@@ -105,6 +115,13 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                                 color: Color(0xff75c7fb),
                                                 shape: BoxShape.circle),
                                             child: Icon(Icons.arrow_forward)),
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Explore()));
+                                        },
                                       ),
                                     ),
                                   )),

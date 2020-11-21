@@ -109,7 +109,7 @@ class _OTPState extends State<OTP> {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'UniQ',
+      title: 'StreeCare',
       home: Scaffold(
           //resizeToAvoidBottomPadding: false,
           backgroundColor: const Color(0xffffffff),
@@ -129,8 +129,8 @@ class _OTPState extends State<OTP> {
                               begin: Alignment(-1.52, 1.0),
                               end: Alignment(1.13, -0.95),
                               colors: [
-                                const Color(0xffee00ff),
-                                const Color(0xff6600ff)
+                                const Color(0xfffe82a7),
+                                const Color(0xfffe82a7),
                               ],
                               stops: [0.0, 1.0],
                             ),
@@ -258,7 +258,7 @@ class _OTPState extends State<OTP> {
                         }
                       },
                       pinTheme: PinTheme(
-                        inactiveColor: Colors.purple,
+                        inactiveColor: Color(0xfffe82a7),
                         shape: PinCodeFieldShape.box,
                         borderRadius: BorderRadius.circular(5),
                         fieldHeight: 50,
@@ -335,8 +335,8 @@ class _OTPState extends State<OTP> {
                         begin: Alignment(-1.35, 2.14),
                         end: Alignment(1.13, -2.03),
                         colors: [
-                          const Color(0xffee00ff),
-                          const Color(0xff6600ff)
+                          const Color(0xfffe82a7),
+                          const Color(0xfffe82a7),
                         ],
                         stops: [0.0, 1.0],
                       ),
@@ -396,7 +396,10 @@ class OtpTextField extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
         color: const Color(0xffffffff),
-        border: Border.all(width: 2, color: const Color(0xff9900FF)),
+        border: Border.all(
+          width: 2,
+          color: const Color(0xfffe82a7),
+        ),
         boxShadow: [
           BoxShadow(
               color: const Color(0x29000000),

@@ -18,11 +18,6 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 3), () {
       getstatus();
     });
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.pop(context);
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => EnterMobile()));
-    });
   }
 
   void getstatus() async {
@@ -31,6 +26,10 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pop(context);
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Homepage()));
+    } else {
+      Navigator.pop(context);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => EnterMobile()));
     }
   }
 
@@ -45,10 +44,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
                 colors: [
-
               Color(0xfffe82a7),
               Color(0xfffe82a7),
-
             ])),
         child: Center(
             child: Column(
@@ -57,11 +54,10 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.3,
             ),
+            Text('StreeCare', style: TextStyle(fontSize: 25)),
             Center(
               child: Container(
-
                 child: Image.asset("assets/images/ruralwomen.png"),
-
               ),
             )
           ],
