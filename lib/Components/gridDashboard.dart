@@ -17,7 +17,7 @@ class GridDashboard extends StatelessWidget {
   );
   Items item3 = new Items(
     title: "Malnutrition",
-    img: "assets/images/information.png",
+    img: "assets/images/information(1).png",
     screen: Jobs(),
   );
   Items item4 = new Items(

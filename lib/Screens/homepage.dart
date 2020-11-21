@@ -85,7 +85,7 @@ class Homepage extends StatelessWidget {
                         leading: Image.asset("assets/images/calendar.png"),
                         title: Text('Meetups'),
                         contentPadding:
-                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                         // subtitle: Text(''),
                         // isThreeLine: true,
                         trailing: RaisedButton(
@@ -127,7 +127,8 @@ class Homepage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Jobs()),
+                                MaterialPageRoute(
+                                    builder: (context) => JobsHomePage()),
                               );
                             }),
                       ),

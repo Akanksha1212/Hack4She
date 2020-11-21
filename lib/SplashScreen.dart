@@ -49,12 +49,18 @@ class _SplashScreenState extends State<SplashScreen> {
             ])),
         child: Center(
             child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/images/streelogo.png",
+                ),
+                Text('Care',
+                    style: TextStyle(fontSize: 45, color: Colors.white)),
+              ],
             ),
-            Text('StreeCare', style: TextStyle(fontSize: 25)),
             Center(
               child: Container(
                 child: Image.asset("assets/images/ruralwomen.png"),

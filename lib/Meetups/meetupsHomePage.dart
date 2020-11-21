@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 //import 'my_flutter_app_icons.dart' as customIcons;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:streecare/Components/my_flutter_app_icons.dart';
+import 'package:streecare/Meetups/CreateMeetup.dart';
+import 'package:streecare/Meetups/MeetUpBoard.dart';
 import 'package:streecare/Meetups/MeetUpExplore.dart';
 
 import 'package:streecare/Screens/addMeetUp.dart';
@@ -81,7 +83,7 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      AddMeetUp()));
+                                                      CreateMeetUp()));
                                         },
                                       ),
                                     ),
@@ -122,7 +124,6 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                               MaterialPageRoute(
                                                   builder: (context) =>
                                                       Explore()));
-
                                         },
                                       ),
                                     ),
@@ -147,18 +148,25 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: ListTile(
-                                        title: Text('Meet Ups',
-                                            style: TextStyle(
-                                                color: Color(0xff75c7fb))),
-                                        trailing: GestureDetector(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                color: Color(0xff75c7fb),
-                                                shape: BoxShape.circle),
-                                            child: Icon(Icons.arrow_forward),
+                                          title: Text('Manage Meet Ups',
+                                              style: TextStyle(
+                                                  color: Color(0xff75c7fb))),
+                                          trailing: GestureDetector(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: Color(0xff75c7fb),
+                                                  shape: BoxShape.circle),
+                                              child: Icon(Icons.arrow_forward),
+                                            ),
                                           ),
-                                        ),
-                                      ),
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Board()),
+                                            );
+                                          }),
                                     )),
                               ),
                             ],
