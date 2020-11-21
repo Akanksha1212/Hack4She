@@ -3,6 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 //import 'my_flutter_app_icons.dart' as customIcons;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:streecare/Components/my_flutter_app_icons.dart';
+import 'package:streecare/Meetups/CreateMeetup.dart';
+import 'package:streecare/Meetups/MeetUpBoard.dart';
+import 'package:streecare/Meetups/MeetUpExplore.dart';
 
 class MeetUpsHomePage extends StatefulWidget {
   @override
@@ -67,6 +70,9 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                           style: TextStyle(
                                               color: Color(0xff75c7fb))),
                                       trailing: GestureDetector(
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>CreateMeetUp()));
+                                        },
                                         child: Container(
                                             decoration: BoxDecoration(
                                                 color: Color(0xff75c7fb),
@@ -100,6 +106,9 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                             TextStyle(color: Color(0xff75c7fb)),
                                       ),
                                       trailing: GestureDetector(
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>Explore()));
+                                        },
                                         child: Container(
                                             decoration: BoxDecoration(
                                                 color: Color(0xff75c7fb),
@@ -132,6 +141,9 @@ class _MeetUpsHomePageState extends State<MeetUpsHomePage> {
                                             style: TextStyle(
                                                 color: Color(0xff75c7fb))),
                                         trailing: GestureDetector(
+                                          onTap: (){
+                                            Navigator.push(context, MaterialPageRoute(builder:(context)=>Board()));
+                                          },
                                           child: Container(
                                             decoration: BoxDecoration(
                                                 color: Color(0xff75c7fb),

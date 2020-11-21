@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:intl/intl.dart';
 import 'package:streecare/Components/styles.dart';
-import 'package:streecare/Screens/MeetRegistered.dart';
+import 'file:///D:/Hack4She/lib/Meetups/MeetRegistered.dart';
 
 
 
@@ -66,6 +66,7 @@ class _ExploreState extends State<Explore> {
     });
   }
 
+
   @override
   void initState() {
     // TODO: implement initState
@@ -80,8 +81,9 @@ class _ExploreState extends State<Explore> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xf0ff5252),
+        backgroundColor: Color(0xfffe82a7),
         elevation: 0,
         toolbarHeight: MediaQuery.of(context).size.height*0.1,
 
@@ -153,11 +155,13 @@ class _ExploreState extends State<Explore> {
                                var city=document.data['city'];
                                var description=document.data['description'];
                                var date=document.data['date'];
-                               var landamark=document.data['landmark'];
+                               var landmark=document.data['landmark'];
                                var mobile=document.data['mobile'];
                                var seats=document.data['seats'];
                                var state=document.data['state'];
                                var duration=document.data['duration'];
+                               var time=document.data['time'];
+                               var id=document.documentID;
 
 
 
@@ -166,7 +170,7 @@ class _ExploreState extends State<Explore> {
                               {
                                 usersList.add(
 
-                                    DonorView(title: title, description:description, city: city,date:date,landmark:landamark, mobile:mobile,seats:seats,state:state,duration:duration
+                                    ExploreView(title: title, description:description, city: city,date:date,landmark:landmark, mobile:mobile,seats:seats,state:state,duration:duration,time:time,id:id,register:true,delete:false
                                     ));
                                 //     PatientView(
                                 //       name: name, age: age, bloodGroup: bloodGroup, gender: genders[gender], lastTested: lastTested,

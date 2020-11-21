@@ -58,6 +58,9 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
      'state':state.text,
      'city':city.text,
      'landmark':landmark.text,
+     'timstamp':DateTime.now(),
+     'attendees': FieldValue.arrayUnion([]),
+     'created': _uid
 
    };
    Firestore.instance.collection('MeetUps').document().setData(data);
@@ -160,6 +163,7 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                         child: Text(
                                           'Title',
                                           style: kLabelStyle,
+
                                         ),
                                       ),
                                       SizedBox(width: 15,),
@@ -495,7 +499,7 @@ class _CreateMeetUpState extends State<CreateMeetUp> {
                                       TextField(
                                         controller: description,
                                         textAlign: TextAlign.center,
-                                        maxLines: 3,
+                                        maxLines: 5,
                                         decoration: kTextFieldDecor.copyWith(
                                             hintText: 'In this workshop you will learn how to use internet for farming'
                                         ),
