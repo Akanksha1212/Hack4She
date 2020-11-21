@@ -127,7 +127,7 @@ class Homepage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Jobs()),
+                                MaterialPageRoute(builder: (context) => JobsHomePage()),
                               );
                             }),
                       ),
@@ -156,7 +156,7 @@ class Homepage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Jobs()),
+                                MaterialPageRoute(builder: (context) => JobsHomePage()),
                               );
                             }),
                       ),

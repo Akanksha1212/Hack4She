@@ -10,6 +10,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:streecare/Components/styles.dart';
 import 'package:streecare/Meetups/MeetRegistered.dart';
+import 'package:streecare/onlinestore/StoreRegistered.dart';
 
 class StoreExplore extends StatefulWidget {
   @override
@@ -49,7 +50,7 @@ class _StoreExploreState extends State<StoreExplore> {
     GeoFirePoint center = geo.point(latitude: latitude, longitude: longitude);
 
 // get the collection reference or query
-    var collectionReference = Firestore.instance.collection('MeetUps');
+    var collectionReference = Firestore.instance.collection('OnlineStore');
 
     double radius = 1000;
     String field = 'location';
@@ -160,33 +161,16 @@ class _StoreExploreState extends State<StoreExplore> {
                     final docs = Documents;
                     Documents.forEach((DocumentSnapshot document) {
                       print(document.data);
-                      var title = document.data['title'];
-                      var city = document.data['city'];
-                      var description = document.data['description'];
-                      var date = document.data['date'];
-                      var landmark = document.data['landmark'];
-                      var mobile = document.data['mobile'];
-                      var seats = document.data['seats'];
-                      var state = document.data['state'];
-                      var duration = document.data['duration'];
-                      var time = document.data['time'];
-                      var id = document.documentID;
+                      var name=document.data['name'];
+                      var image=document.data['image'];
+                      var price=document.data['price'];
+                      var contact=document.data['contact'];
+                      var description=document.data['description'];
 
                       if (true) {
-                        usersList.add(ExploreView(
-                            title: title,
-                            description: description,
-                            city: city,
-                            date: date,
-                            landmark: landmark,
-                            mobile: mobile,
-                            seats: seats,
-                            state: state,
-                            duration: duration,
-                            time: time,
-                            id: id,
-                            register: true,
-                            delete: false));
+                        usersList.add(StoreExploreView(
+                          name:name,price:price,contact:contact,image:image,description:description
+                            ));
                         //     PatientView(
                         //       name: name, age: age, bloodGroup: bloodGroup, gender: genders[gender], lastTested: lastTested,
                         //       relation: relation, hospital: hospital, contact: contact, city: city, state: state, pincode: pincode,
