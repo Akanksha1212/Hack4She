@@ -166,7 +166,7 @@ class _StoreExploreState extends State<StoreExplore> {
                       var price = document.data['price'];
                       var contact = document.data['contact'];
                       var description = document.data['description'];
-
+                      print(name);
                       if (true) {
                         usersList.add(StoreExploreView(
                             name: name,

@@ -134,6 +134,17 @@ class _StoreHomePageState extends State<StoreHomePage> {
                           ],
                         ),
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Image(
+                            height: MediaQuery.of(context).size.height / 2,
+                            width: MediaQuery.of(context).size.width / 1.09,
+                            image: AssetImage('assets/images/handmade1.png'),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ],
