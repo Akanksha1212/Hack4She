@@ -29,7 +29,7 @@ class _JobsHomePageState extends State<JobsHomePage> {
             ),
             Center(
               child: Text(
-                'What are your next steps and goals?\nSchedule & Explore the events near you!',
+                'What are your next steps and goals?\n & Explore jobs opportunities near you!',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),
             ),
@@ -72,8 +72,12 @@ class _JobsHomePageState extends State<JobsHomePage> {
                                           style: TextStyle(
                                               color: Color(0xff75c7fb))),
                                       trailing: GestureDetector(
-                                        onTap: (){
-                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>CreateJobs()));
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      CreateJobs()));
                                         },
                                         child: Container(
                                             decoration: BoxDecoration(
@@ -108,8 +112,12 @@ class _JobsHomePageState extends State<JobsHomePage> {
                                             TextStyle(color: Color(0xff75c7fb)),
                                       ),
                                       trailing: GestureDetector(
-                                        onTap: (){
-                                          Navigator.push(context, MaterialPageRoute(builder:(context)=>JobExplore()));
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      JobExplore()));
                                         },
                                         child: Container(
                                             decoration: BoxDecoration(
@@ -123,7 +131,17 @@ class _JobsHomePageState extends State<JobsHomePage> {
                           ],
                         ),
                       ),
-
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Image(
+                            height: MediaQuery.of(context).size.height / 2,
+                            width: MediaQuery.of(context).size.width / 1.09,
+                            image: AssetImage('assets/images/ww.png'),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ],

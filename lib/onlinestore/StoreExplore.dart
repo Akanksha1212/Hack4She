@@ -50,7 +50,8 @@ class _StoreExploreState extends State<StoreExplore> {
     GeoFirePoint center = geo.point(latitude: latitude, longitude: longitude);
 
 // get the collection reference or query
-    var collectionReference =await  Firestore.instance.collection('OnlineStore').getDocuments();
+    var collectionReference =
+        await Firestore.instance.collection('OnlineStore').getDocuments();
 
     double radius = 1000;
     String field = 'location';
@@ -97,7 +98,7 @@ class _StoreExploreState extends State<StoreExplore> {
               )
             : Center(
                 child: Text(
-                  'MeetUps',
+                  'Store',
                   style: kGenderSelected,
                 ),
               ),
@@ -157,17 +158,19 @@ class _StoreExploreState extends State<StoreExplore> {
                     final docs = Documents;
                     Documents.forEach((DocumentSnapshot document) {
                       print(document.data);
-
-                      var name=document['name'];
-                      var image=document['image'];
-                      var price=document['price'];
-                      var contact=document['contact'];
-                      var description=document['description'];
+                      var name = document.data['name'];
+                      var image = document.data['image'];
+                      var price = document.data['price'];
+                      var contact = document.data['contact'];
+                      var description = document.data['description'];
                       print(name);
                       if (true) {
                         usersList.add(StoreExploreView(
-                          name:name,price:price,contact:contact,image:image,description:description
-                            ));
+                            name: name,
+                            price: price,
+                            contact: contact,
+                            image: image,
+                            description: description));
                         //     PatientView(
                         //       name: name, age: age, bloodGroup: bloodGroup, gender: genders[gender], lastTested: lastTested,
                         //       relation: relation, hospital: hospital, contact: contact, city: city, state: state, pincode: pincode,

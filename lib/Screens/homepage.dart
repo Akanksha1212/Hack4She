@@ -3,9 +3,9 @@ import 'package:streecare/Components/gridDashboard.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:streecare/Jobs/JobsHomePage.dart';
 import 'package:streecare/Screens/health.dart';
-import 'package:streecare/Screens/jobs.dart';
 import 'package:streecare/Screens/meetups.dart';
 import 'package:streecare/Meetups/meetupsHomePage.dart';
+import 'package:streecare/onlinestore/StoreHomePage.dart';
 
 class Homepage extends StatelessWidget {
   @override
@@ -85,7 +85,7 @@ class Homepage extends StatelessWidget {
                         leading: Image.asset("assets/images/calendar.png"),
                         title: Text('Meetups'),
                         contentPadding:
-                            EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                         // subtitle: Text(''),
                         // isThreeLine: true,
                         trailing: RaisedButton(
@@ -127,7 +127,8 @@ class Homepage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => JobsHomePage()),
+                                MaterialPageRoute(
+                                    builder: (context) => JobsHomePage()),
                               );
                             }),
                       ),
@@ -156,7 +157,8 @@ class Homepage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => JobsHomePage()),
+                                MaterialPageRoute(
+                                    builder: (context) => StoreHomePage()),
                               );
                             }),
                       ),

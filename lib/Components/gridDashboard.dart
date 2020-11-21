@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:streecare/Screens/family.dart';
 import 'package:streecare/Screens/health.dart';
 import 'package:streecare/Screens/meetups.dart';
-import 'package:streecare/Screens/jobs.dart';
+import 'package:streecare/Jobs/JobsHomePage.dart';
 import 'package:streecare/Screens/videos.dart';
 
 class GridDashboard extends StatelessWidget {
@@ -17,13 +17,13 @@ class GridDashboard extends StatelessWidget {
   );
   Items item3 = new Items(
     title: "Malnutrition",
-    img: "assets/images/information.png",
-    screen: Jobs(),
+    img: "assets/images/information(1).png",
+    screen: JobsHomePage(),
   );
   Items item4 = new Items(
     title: "Depression",
     img: "assets/images/sadness.png",
-    screen: Jobs(),
+    screen: JobsHomePage(),
   );
   Items item5 = new Items(
     title: "Breast Cancer",
@@ -33,7 +33,7 @@ class GridDashboard extends StatelessWidget {
   Items item6 = new Items(
     title: "Ask",
     img: "assets/images/conversation.png",
-    screen: Jobs(),
+    screen: JobsHomePage(),
   );
   @override
   Widget build(BuildContext context) {
