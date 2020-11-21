@@ -43,6 +43,8 @@ dependencies:
   flutter_spinkit: ^4.1.2
   material_design_icons_flutter: ^4.0.5555
   fluttertoast: ^7.1.1
+  csv: ^4.1.0
+  youtube_player_flutter: ^7.0.0+7
 
 
 

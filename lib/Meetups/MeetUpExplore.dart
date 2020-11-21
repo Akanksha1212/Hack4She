@@ -8,37 +8,34 @@ import 'package:flutter/material.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:intl/intl.dart';
 import 'package:streecare/Components/styles.dart';
-import 'file:///D:/Hack4She/lib/Meetups/MeetRegistered.dart';
-
-
+import 'package:streecare/Meetups/MeetRegistered.dart';
 
 class Explore extends StatefulWidget {
-
   @override
   _ExploreState createState() => _ExploreState();
 }
 
 class _ExploreState extends State<Explore> {
-
   Firestore firestore = Firestore.instance;
   FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseUser _user;
-  List<bool> isSelected = [true,false];
+  List<bool> isSelected = [true, false];
 
   bool isSearched = false;
   bool searchBar = false;
   var status;
- var Documents;
+  var Documents;
 
-
-  void getUser() async{
+  void getUser() async {
     _user = await _auth.currentUser();
   }
+
   Geoflutterfire geo = Geoflutterfire();
   StreamSubscription subscription;
   _getdata() async {
     // Create a geoFirePoint
-    GeoFirePoint center = geo.point(latitude: 16.1835406, longitude: 81.1297773);
+    GeoFirePoint center =
+        geo.point(latitude: 16.1835406, longitude: 81.1297773);
 
 // get the collection reference or query
     var collectionReference = Firestore.instance.collection('MeetUps');
@@ -46,16 +43,18 @@ class _ExploreState extends State<Explore> {
     double radius = 50;
     String field = 'location';
 
-    subscription = await geo.collection(collectionRef: collectionReference)
-        .within(center: center, radius: radius, field: field).listen(_updateMarkers);
+    subscription = await geo
+        .collection(collectionRef: collectionReference)
+        .within(center: center, radius: radius, field: field)
+        .listen(_updateMarkers);
     return subscription;
-
   }
+
   void _updateMarkers(List<DocumentSnapshot> documentList) {
     print(documentList);
-         setState(() {
-           Documents=documentList;
-         });
+    setState(() {
+      Documents = documentList;
+    });
     documentList.forEach((DocumentSnapshot document) {
       GeoPoint pos = document.data['location']['geopoint'];
       double distance = document.data['distance'];
@@ -66,34 +65,36 @@ class _ExploreState extends State<Explore> {
     });
   }
 
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getUser();
-   status=  _getdata();
+    status = _getdata();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xfffe82a7),
         elevation: 0,
-        toolbarHeight: MediaQuery.of(context).size.height*0.1,
-
-        title: searchBar?TextField(
-          decoration: kSearchFieldDecor,
-          style: kInfoText.copyWith(color: Colors.white),
-          cursorColor: Colors.white,
-        ):Center(child: Text('MeetUps',style: kGenderSelected,),),
+        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+        title: searchBar
+            ? TextField(
+                decoration: kSearchFieldDecor,
+                style: kInfoText.copyWith(color: Colors.white),
+                cursorColor: Colors.white,
+              )
+            : Center(
+                child: Text(
+                  'MeetUps',
+                  style: kGenderSelected,
+                ),
+              ),
         leading: GestureDetector(
-          onTap: (){
+          onTap: () {
             //TODO: Back Functionality
             setState(() {
               searchBar = false;
@@ -119,7 +120,7 @@ class _ExploreState extends State<Explore> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: GestureDetector(
-              onTap: (){
+              onTap: () {
                 setState(() {
                   searchBar = !searchBar;
                 });
@@ -135,83 +136,77 @@ class _ExploreState extends State<Explore> {
       ),
       body: Container(
           child: Column(
-            children: <Widget>[
-              Flexible(
-                  child: FutureBuilder(
-                         future: status,
-                        builder: (context,snapshot){
-                          if(snapshot.connectionState == ConnectionState.waiting){
-                            return Center(child: CircularProgressIndicator());
-                          }
-                          if(snapshot.hasData)
-                          {
+        children: <Widget>[
+          Flexible(
+            child: FutureBuilder(
+                future: status,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  if (snapshot.hasData) {
+                    List<Widget> usersList = [];
+                    final docs = Documents;
+                    Documents.forEach((DocumentSnapshot document) {
+                      print(document.data);
+                      var title = document.data['title'];
+                      var city = document.data['city'];
+                      var description = document.data['description'];
+                      var date = document.data['date'];
+                      var landmark = document.data['landmark'];
+                      var mobile = document.data['mobile'];
+                      var seats = document.data['seats'];
+                      var state = document.data['state'];
+                      var duration = document.data['duration'];
+                      var time = document.data['time'];
+                      var id = document.documentID;
 
-                            List<Widget> usersList = [];
-                            final docs = Documents;
-                            Documents.forEach((DocumentSnapshot document)
-                            {
-                              print(document.data);
-                               var title=document.data['title'];
-                               var city=document.data['city'];
-                               var description=document.data['description'];
-                               var date=document.data['date'];
-                               var landmark=document.data['landmark'];
-                               var mobile=document.data['mobile'];
-                               var seats=document.data['seats'];
-                               var state=document.data['state'];
-                               var duration=document.data['duration'];
-                               var time=document.data['time'];
-                               var id=document.documentID;
-
-
-
-
-                              if(true)
-                              {
-                                usersList.add(
-
-                                    ExploreView(title: title, description:description, city: city,date:date,landmark:landmark, mobile:mobile,seats:seats,state:state,duration:duration,time:time,id:id,register:true,delete:false
-                                    ));
-                                //     PatientView(
-                                //       name: name, age: age, bloodGroup: bloodGroup, gender: genders[gender], lastTested: lastTested,
-                                //       relation: relation, hospital: hospital, contact: contact, city: city, state: state, pincode: pincode,
-                                //       bp: bp, diabetes: diabetes, preMedical: preMedical, extraDetails: moreDetails, neededDate: '19/05/2020',
-                                //
-                                //     )
-                                //);
-                              }
-                            });
-                            if(usersList.isEmpty)
-                            {
-                              return Container(
-                                child: Center(
-                                  child: Text(
-                                    '🙁 No Records Found',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
-                                        color: Colors.grey
-                                    ),
-                                  ),
-                                ),
-                              );
-                            }
-                            return ListView(
-                              children: usersList,
-                            );
-                          }
-                          return Container();
-                        }
-                    ),
-                  )
-
-            ],
+                      if (true) {
+                        usersList.add(ExploreView(
+                            title: title,
+                            description: description,
+                            city: city,
+                            date: date,
+                            landmark: landmark,
+                            mobile: mobile,
+                            seats: seats,
+                            state: state,
+                            duration: duration,
+                            time: time,
+                            id: id,
+                            register: true,
+                            delete: false));
+                        //     PatientView(
+                        //       name: name, age: age, bloodGroup: bloodGroup, gender: genders[gender], lastTested: lastTested,
+                        //       relation: relation, hospital: hospital, contact: contact, city: city, state: state, pincode: pincode,
+                        //       bp: bp, diabetes: diabetes, preMedical: preMedical, extraDetails: moreDetails, neededDate: '19/05/2020',
+                        //
+                        //     )
+                        //);
+                      }
+                    });
+                    if (usersList.isEmpty) {
+                      return Container(
+                        child: Center(
+                          child: Text(
+                            '🙁 No Records Found',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: Colors.grey),
+                          ),
+                        ),
+                      );
+                    }
+                    return ListView(
+                      children: usersList,
+                    );
+                  }
+                  return Container();
+                }),
           )
-      ),
+        ],
+      )),
     );
   }
 }
-
-
-
-

@@ -6,22 +6,45 @@ import 'package:streecare/Screens/jobs.dart';
 
 class GridDashboard extends StatelessWidget {
   Items item1 = new Items(
-      title: "Health", img: "assets/images/healthcare.png", screen: Health());
+      title: "Sanitation",
+      img: "assets/images/healthcare.png",
+      screen: Health());
 
   Items item2 = new Items(
-    title: "Meetups",
+    title: "Family",
     img: "assets/images/calendar.png",
     screen: Meetups(),
   );
   Items item3 = new Items(
-    title: "Jobs",
+    title: "Malnutrition",
     img: "assets/images/job.png",
     screen: Jobs(),
   );
-
+  Items item4 = new Items(
+    title: "Depression",
+    img: "assets/images/job.png",
+    screen: Jobs(),
+  );
+  Items item5 = new Items(
+    title: "Breast Cancer",
+    img: "assets/images/job.png",
+    screen: Jobs(),
+  );
+  Items item6 = new Items(
+    title: "Ask",
+    img: "assets/images/job.png",
+    screen: Jobs(),
+  );
   @override
   Widget build(BuildContext context) {
-    List<Items> myList = [item1, item2, item3];
+    List<Items> myList = [
+      item1,
+      item2,
+      item3,
+      item4,
+      item5,
+      item6,
+    ];
     var color = 0xffffde59;
     return Flexible(
       child: GridView.count(
@@ -51,7 +74,7 @@ class GridDashboard extends StatelessWidget {
                       style: GoogleFonts.openSans(
                           textStyle: TextStyle(
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.w600)),
                     ),
                     SizedBox(
