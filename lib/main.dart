@@ -34,7 +34,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+<<<<<<< HEAD
+      home: SplashScreen(),
+=======
       home: JobsHomePage(),
+>>>>>>> 768a0fafa3539707464a0ce920a4761e36dca089
     );
   }
 }

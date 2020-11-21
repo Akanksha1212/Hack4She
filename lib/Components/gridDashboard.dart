@@ -8,9 +8,7 @@ import 'package:streecare/Screens/videos.dart';
 
 class GridDashboard extends StatelessWidget {
   Items item1 = new Items(
-      title: "Sanitation",
-      img: "assets/images/healthcare.png",
-      screen: Health());
+      title: "Sanitation", img: "assets/images/safe.png", screen: Health());
 
   Items item2 = new Items(
     title: "Family",
@@ -19,7 +17,7 @@ class GridDashboard extends StatelessWidget {
   );
   Items item3 = new Items(
     title: "Malnutrition",
-    img: "assets/images/job.png",
+    img: "assets/images/information.png",
     screen: Jobs(),
   );
   Items item4 = new Items(
@@ -34,7 +32,7 @@ class GridDashboard extends StatelessWidget {
   );
   Items item6 = new Items(
     title: "Ask",
-    img: "assets/images/job.png",
+    img: "assets/images/conversation.png",
     screen: Jobs(),
   );
   @override
