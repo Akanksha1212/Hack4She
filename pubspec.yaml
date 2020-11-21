@@ -45,6 +45,9 @@ dependencies:
   fluttertoast: ^7.1.1
   csv: ^4.1.0
   youtube_player_flutter: ^7.0.0+7
+  flutter_dialogflow:
+  firebase_messaging: 
+ 
 
 
 
@@ -70,6 +73,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
       - assets/images/
+      - assets/streecare-nfim-def69e136eb5.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

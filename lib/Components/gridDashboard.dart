@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:streecare/Screens/health.dart';
 import 'package:streecare/Screens/meetups.dart';
 import 'package:streecare/Screens/jobs.dart';
+import 'package:streecare/Screens/videos.dart';
 
 class GridDashboard extends StatelessWidget {
   Items item1 = new Items(
@@ -22,13 +23,13 @@ class GridDashboard extends StatelessWidget {
   );
   Items item4 = new Items(
     title: "Depression",
-    img: "assets/images/job.png",
+    img: "assets/images/sadness.png",
     screen: Jobs(),
   );
   Items item5 = new Items(
     title: "Breast Cancer",
-    img: "assets/images/job.png",
-    screen: Jobs(),
+    img: "assets/images/ribbon.png",
+    screen: ThirdScreen(),
   );
   Items item6 = new Items(
     title: "Ask",

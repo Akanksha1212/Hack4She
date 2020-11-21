@@ -3,6 +3,7 @@ import 'package:csv/csv.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:streecare/Components/gridDashboard.dart';
+import 'package:streecare/Screens/dialog_flow.dart';
 import 'package:streecare/Screens/videos.dart';
 
 class Health extends StatefulWidget {
@@ -43,7 +44,8 @@ class _HealthState extends State<Health> {
                   borderRadius: BorderRadius.circular(18),
                   side: BorderSide(color: Colors.black)),
               onPressed: () {
-                // save data
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Sakhi()));
               },
             ),
             SizedBox(

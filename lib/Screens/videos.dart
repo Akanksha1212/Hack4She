@@ -14,7 +14,7 @@ class ThirdScreenState extends State<ThirdScreen> {
   Widget build(BuildContext context) {
     YoutubePlayerController _controller = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(
-          "https://www.youtube.com/watch?v=LrfE6JUwIms"),
+          "https://www.youtube.com/watch?v=JIAzI29-otM"),
       flags: YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
@@ -22,7 +22,7 @@ class ThirdScreenState extends State<ThirdScreen> {
     );
     YoutubePlayerController _controller1 = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(
-          "https://www.youtube.com/watch?v=RKjnl2o2SDs"),
+          "https://www.youtube.com/watch?v=WaOxj6hKulY"),
       flags: YoutubePlayerFlags(
         autoPlay: false,
         mute: true,
@@ -30,7 +30,7 @@ class ThirdScreenState extends State<ThirdScreen> {
     );
     YoutubePlayerController _controller2 = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(
-          "https://www.youtube.com/watch?v=MPPOsByzNwg"),
+          "https://www.youtube.com/watch?v=RDQviTbHmOg"),
       flags: YoutubePlayerFlags(
         autoPlay: false,
         mute: true,
@@ -40,7 +40,7 @@ class ThirdScreenState extends State<ThirdScreen> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xffc3aed6),
+      backgroundColor: Color(0xfffe82a7),
       body: Container(
         child: new SingleChildScrollView(
           child: new ConstrainedBox(
@@ -50,7 +50,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                 child: Column(
                   children: <Widget>[
                     SizedBox(
-                      height: 30,
+                      height: 40,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
