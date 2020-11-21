@@ -61,7 +61,7 @@ class _BoardState extends State<Board> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xf0ff5252),
+        backgroundColor: Color(0xfffe82a7),
         elevation: 0,
         toolbarHeight: MediaQuery.of(context).size.height*0.1,
 

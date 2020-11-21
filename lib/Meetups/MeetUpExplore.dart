@@ -6,6 +6,7 @@ import 'package:firebase_database/ui/utils/stream_subscriber_mixin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:streecare/Components/styles.dart';
 import 'file:///D:/Hack4She/lib/Meetups/MeetRegistered.dart';
@@ -29,16 +30,30 @@ class _ExploreState extends State<Explore> {
   bool searchBar = false;
   var status;
  var Documents;
-
-
+  final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
+  double latitude, longitude;
   void getUser() async{
     _user = await _auth.currentUser();
   }
   Geoflutterfire geo = Geoflutterfire();
   StreamSubscription subscription;
   _getdata() async {
+
+   await  geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      latitude = position.latitude;
+      longitude = position.longitude;
+      print(latitude);
+      print(longitude);
+
+
+
+    }).catchError((e) {
+      print(e);
+    });
     // Create a geoFirePoint
-    GeoFirePoint center = geo.point(latitude: 16.1835406, longitude: 81.1297773);
+    GeoFirePoint center = geo.point(latitude: latitude, longitude: longitude);
 
 // get the collection reference or query
     var collectionReference = Firestore.instance.collection('MeetUps');
